@@ -12,7 +12,7 @@
     <meta name="apple-mobile-web-app-title" content="Breathing Timer" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name='viewport' content='viewport-fit=cover, width=device-width, initial-scale=1.0'>
+    <meta name='viewport' content='viewport-fit=cover, width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0,'>
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <style>
         body,
@@ -74,6 +74,9 @@
     document.title = '4-7-8 Breathing Timer'
     if(window.navigator.standalone){
         document.querySelector('#bottom').style.display = 'none'
+        document.addEventListener('gesturestart', function (e) {
+            e.preventDefault();
+        });
     }
     const div = document.querySelector('#circle')
     const do_this = document.querySelector('#do-this')
