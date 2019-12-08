@@ -74,9 +74,10 @@
     document.title = '4-7-8 Breathing Timer'
     if(window.navigator.standalone){
         document.querySelector('#bottom').style.display = 'none'
-        document.addEventListener('gesturestart', function (e) {
+        document.addEventListener('touchmove',
+        function(e) {
             e.preventDefault();
-        });
+        }, {passive:false});
     }
     const div = document.querySelector('#circle')
     const do_this = document.querySelector('#do-this')
