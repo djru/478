@@ -27,7 +27,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: transparent;
+            background: black;
+            color: #5a5a5a;
         }
 
         .container {
@@ -58,12 +59,6 @@
         #do-this{
             font-size: 4em;
         }
-        @media (prefers-color-scheme: dark) { 
-            body {
-                background: black;
-                color: #5a5a5a;
-            }
-        }
         h1 {
             position: fixed;
             top: 0;
@@ -93,6 +88,7 @@
 
 <script>
     document.title = '4-7-8 Breathing Timer'
+    window.run = true
     if(window.navigator.standalone){
         document.querySelector('#bottom').style.display = 'none'
         document.addEventListener('touchmove',
@@ -134,9 +130,10 @@
             do_this_text = 'exhale'
             color = '#deffe4'
         }
-        div.style.transform = `scale(${percent_elapsed})`
-        div.style.background = color
-        do_this.innerText = do_this_text
+        if (window.run){
+            div.style.transform = `scale(${percent_elapsed})`
+            div.style.background = color
+            do_this.innerText = do_this_text}
     }, 10)
 </script>
 
